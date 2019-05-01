@@ -1,21 +1,35 @@
+<style lang="less" scoped>
+.home {
+  p {
+    margin: 0;
+  }
+}
+</style>
+
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <p>{{ countPlusLocalState }}</p>
-    <input v-model="localCount" />
-    <button v-on:click="handleFilter">筛选</button>
-    <button v-on:click="handleIncrement">增加</button>
-    <label>{{message}}</label>
-    <ul id="movies">
-      <li v-bind:key="item" v-for="item in filterMovies">{{ item }}</li>
-    </ul>
+    <Layout>
+      <template v-slot:header>
+        <Header activeItem="发现音乐" />
+      </template>
+      <template v-slot:content>
+        <p>{{ countPlusLocalState }}</p>
+        <input v-model="localCount" />
+        <button v-on:click="handleFilter">筛选</button>
+        <button v-on:click="handleIncrement">增加</button>
+        <label>{{message}}</label>
+        <ul id="movies">
+          <li v-bind:key="item" v-for="item in filterMovies">{{ item }}</li>
+        </ul>
+      </template>
+    </Layout>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Layout from '@/components/Layout.vue';
+import Header from '@/components/Header.vue';
 import { mapState, mapMutations, mapActions } from 'vuex';
 import { INCREMENT } from '@/mutation_types';
 
@@ -29,7 +43,8 @@ export default {
     };
   },
   components: {
-    HelloWorld
+    Layout,
+    Header
   },
   computed: mapState({
     count: state => state.count,
