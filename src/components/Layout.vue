@@ -16,14 +16,14 @@
         // margin-left: 50%;
         // transform: translateX(-50%);
         margin: 0 auto;
-        height: calc(100vh - 140px);
+        height: calc(100vh - 150px);
         background-color: #fff;
         border: 1px solid #d3d3d3;
         border-width: 0 1px;
     }
     > .footer {
         position: relative;
-        height: 69px;
+        height: 80px;
         overflow: hidden;
         
     }
